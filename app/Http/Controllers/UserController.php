@@ -1,12 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
-use Route;
 
 class UserController extends Controller{
 
-    public function profile()
+    public function profile($cg)
     {
-        var_dump(Route::Input('user_id'));
         return 'profile';
     }
 }
