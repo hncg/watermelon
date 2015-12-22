@@ -4,13 +4,11 @@ namespace App\models;
 
 class Test
 {
-    public $visible = array('cg' => "cgg");
-
-    public function cg()
+    public function bind($user_id)
     {
-        return "2";
-    }
-    public function bind($user_id){
-        return ['author' => 'cg'];
+        if ($user_id != 1) {
+            return [];
+        }
+        return ['user' => "cg"];
     }
 }
