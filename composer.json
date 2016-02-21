@@ -21,6 +21,7 @@
         },
         "classmap": [
             "database",
+            "thrift",
             "app/models",
             "app/Http/Controllers"
         ]

@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "31300a8a0bf22fc7a6cc675da02956ac",
+    "hash": "397be6f9a60e838ca43980259f2f9670",
+    "content-hash": "4ddb1e9975c6b2a07cf4eff81e7df47f",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -215,6 +216,37 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "hncg/thrift-php",
+            "version": "v0.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hncg/thrift-php.git",
+                "reference": "c8dae8b59c84639ef3966bf090bab36062ab1c03"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hncg/thrift-php/zipball/c8dae8b59c84639ef3966bf090bab36062ab1c03",
+                "reference": "c8dae8b59c84639ef3966bf090bab36062ab1c03",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Thrift": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "description": "Mirror of apache thrift client lib of php",
+            "homepage": "https://github.com/hncg/thrift-php",
+            "keywords": [
+                "thrift"
+            ],
+            "time": "2016-02-20 15:27:55"
         },
         {
             "name": "jakub-onderka/php-console-color",
