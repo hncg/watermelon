@@ -12,17 +12,22 @@ class  Wrapper
 
     public function query()
     {
-        return $this->result;
+        $results = is_array($this->result) ? $this->result : [];
+        foreach ($results as &$result) {
+            $result = (array) $result;
+        }
+        unset($result);
+        return $results;
     }
 
     public function get()
     {
-
+        return $this->result;
     }
 
     public function run()
     {
-
+        return response('', 204);
     }
 
 }

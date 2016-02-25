@@ -28,7 +28,7 @@ class Factory
 
     public function call($func = '')
     {
-        return (new Wrapper(call_user_func(array($this->client, $func))));
+        return new Wrapper(call_user_func(array($this->client, $func)));
     }
 
 }
