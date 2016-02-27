@@ -10,7 +10,11 @@ use Thrift\Exception\TException;
 
 class Factory
 {
-    protected $client = '';
+    protected $client = null;
+
+    protected $func = null;
+
+    protected $args = null;
 
     public function __construct($server = '')
     {
@@ -26,9 +30,15 @@ class Factory
         $this->client = $client;
     }
 
+    public function with($args = null)
+    {
+        $this->args = $args;
+        return $this;
+    }
+
     public function call($func = '')
     {
-        return new Wrapper(call_user_func(array($this->client, $func)));
+        return new Wrapper(call_user_func(array($this->client, $func), $this->args));
     }
 
 }

@@ -6,14 +6,13 @@ class Article extends Model
 
     public function query()
     {
-        $article = (new Factory('bps'))->call('mget_blog')->query();
-
-        var_dump($article);
-
-        $articleConment = (new Factory('bps'))->call('mget_comment')->query();
-
-        var_dump($articleConment);
-
+        $articles = (new Factory('bps'))->with()->call('mget_blog')->query();
+        $articleConmentsMap = (new Factory('bps'))->with($parent_ids = [1])->call('get_comment_map_by_parent_ids')->query();
+        foreach ($articles as &$article) {
+            $article['comment'] = (array) $articleConmentsMap[$article['id']];
+        }
+        unset($article);
+        return json_encode($articles);
     }
 }
 ?>
