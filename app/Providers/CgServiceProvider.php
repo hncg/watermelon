@@ -13,7 +13,7 @@ class CgServiceProvider extends ServiceProvider
     public function boot(Router $router)
     {
         parent::boot($router);
-        $router->bind('user_id', 'App\models\Test');
+        $router->bind('user_id', 'App\models\Auth');
     }
 
     public function map(Router $router)

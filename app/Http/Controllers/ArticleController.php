@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use APP\models\Article;
+use App\models\Article;
+use Response;
+use Input;
+use Route;
 
-class ArticleController extends Controller{
+class ArticleController extends Controller
+{
 
     public function index()
     {
-        return (new Article())->query();
+        return (new Article())->query(Route::input('user_id'), Input::get('limit'), Input::get('offset'));
     }
 
     public function show($i)
@@ -18,6 +22,6 @@ class ArticleController extends Controller{
     }
 
     public function store(){
-        return response::json('',204);
+        return(new Article())->story(Route::input('user_id'), Input::json()->all());
     }
 }

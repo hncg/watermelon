@@ -1,5 +1,5 @@
 <?php
-namespace APP\models;
+namespace App\models;
 
 use Illuminate\Contracts\Support\Jsonable;
 

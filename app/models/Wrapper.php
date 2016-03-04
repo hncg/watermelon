@@ -1,9 +1,11 @@
 <?php
-namespace APP\models;
+namespace App\models;
+
+use Response;
 
 class  Wrapper
 {
-    protected $result = '';
+    protected $result = null;
 
     public function __construct($result)
     {
@@ -27,7 +29,7 @@ class  Wrapper
 
     public function run()
     {
-        return response('', 204);
+        return Response::json('', 204);
     }
 
 }

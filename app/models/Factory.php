@@ -1,5 +1,5 @@
 <?php
-namespace APP\models;
+namespace App\models;
 
 use Thrift\ClassLoader\ThriftClassLoader;
 use Thrift\Protocol\TBinaryProtocol;
@@ -7,6 +7,7 @@ use Thrift\Transport\TSocket;
 use Thrift\Transport\THttpClient;
 use Thrift\Transport\TBufferedTransport;
 use Thrift\Exception\TException;
+use \bps\UserException;
 
 class Factory
 {
@@ -21,7 +22,6 @@ class Factory
 
         $serverClient = $server .'\\' . ucfirst($server) . 'Client';
         $portKey = 'rpc.' . $server;
-        new ThriftClassLoader();
         $socket = new TSocket('localhost', (int) config($portKey, ''));
         $transport = new TBufferedTransport($socket, 1024, 1024);
         $protocol = new TBinaryProtocol($transport);
@@ -38,7 +38,12 @@ class Factory
 
     public function call($func = '')
     {
-        return new Wrapper(call_user_func(array($this->client, $func), $this->args));
+        try{
+            return new Wrapper(call_user_func_array(array($this->client, $func), $this->args));
+        } catch(UserException $e) {
+            // var_dump($e); //打印会出bug ！！！！！
+            return new Wrapper(null);
+        }
     }
 
 }
