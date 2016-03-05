@@ -16,11 +16,12 @@ class CommentController extends Controller
         $rules = [
             'content' => 'required|max:1024|string',
             'parent_id' => 'required|integer',
+            'user_niker' => 'required|max:64|string',
         ];
         $validator = Validator::make($data, $rules);
         if($validator->fails()){
          return Response::json($validator->messages(), 422);
         }
-        return (new Comment())->story($user->id, $data['parent_id'], $data['content'], time(), $user->niker);
+        return (new Comment())->story($user->id, $data['parent_id'], $data['content'], time(), $data['user_niker']);
     }
 }
