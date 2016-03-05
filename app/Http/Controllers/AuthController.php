@@ -70,10 +70,10 @@ class AuthController extends Controller
             'openid' => $openid,
             'sid' => Session::getId(),
             'last_ip' => Request::ip(),
-            'niker' => '2',
+            'niker' => $niker,
             'last_time' => time(),
             'device' => Request::header('User-Agent'),
-            'gender' => '男',
+            'gender' => $gender,
         ];
         $user_id = User::register($user);
         if (empty($user_id)) {
