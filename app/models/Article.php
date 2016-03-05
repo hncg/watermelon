@@ -21,14 +21,14 @@ class Article extends Model
     }
 
 
-    public function story($user_id, $article)
+    public function story($user, $article)
     {
         return (new Factory('bps'))->with([new \bps\Article([
             'title' => $article['title'],
             'content' => $article['content'],
             'time' => time(),
             'author' => $article['author'],
-            'user_id' => $user_id
+            'user_id' => $user->id
         ])])->call('add')->run();
     }
 }

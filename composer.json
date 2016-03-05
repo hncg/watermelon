@@ -23,7 +23,8 @@
             "database",
             "thrift",
             "app/models",
-            "app/Http/Controllers"
+            "app/Http/Controllers",
+            "openapi"
         ]
     },
     "autoload-dev": {

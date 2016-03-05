@@ -10,7 +10,10 @@ Route::group(['prefix' => '/v1'], function(){
         Route::resource('/image', 'UploadController', ['only' => ['index', 'store']]);
     });
     Route::post('/login', 'AuthController@login');
-    Route::get('/login', 'AuthController@login');
+    Route::get('/register_by_3_err', 'ErrorController@register_by_3_err');
+    Route::get('/login_by_3', 'AuthController@login_by_3');
+    Route::get('/register_by_openid', 'AuthController@register_by_openid');
+    Route::get('/login_by_3_callback', 'AuthController@login_by_3_callback');
 });
 
 Route::get('/404', 'ErrorController@error');
