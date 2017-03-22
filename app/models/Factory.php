@@ -21,8 +21,8 @@ class Factory
     {
 
         $serverClient = $server .'\\' . ucfirst($server) . 'Client';
-        $portKey = 'rpc.' . $server;
-        $socket = new TSocket('localhost', (int) config($portKey, ''));
+        $rpcConfig = config('rpc.' . $server);
+        $socket = new TSocket($rpcConfig['address'], $rpcConfig['port']);
         $transport = new TBufferedTransport($socket, 1024, 1024);
         $protocol = new TBinaryProtocol($transport);
         $client = new $serverClient($protocol);

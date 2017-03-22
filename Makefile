@@ -3,7 +3,7 @@ thrift_files:
 	thrift --gen php  -out . bps.thrift
 
 install:
-	curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/bin
+	curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/bin/composer
 
 build:thrift_files
 	composer install -vvv
